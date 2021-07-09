@@ -230,9 +230,26 @@ el $ se utiliza para indicar final de línea
 
 ## Ejemplos 
 
--  Url Completa -> https?:\/\/[\w\-\.]+\.\w{2,5}\/?\S*  
-- Otra forma -> (https?://)?(www\.)?[A-z0-9_\.]+\.[A-z]{2,3}\/?.*
+- Url Completa -> ```javascript  https?:\/\/[\w\-\.]+\.\w{2,5}\/?\S*   ```
+- Otra forma -> ```javascript (https?://)?(www\.)?[A-z0-9_\.]+\.[A-z]{2,3}\/?.* ```
                    
 - Url hasta el TLD -> https?:\/\/[\w\-\.]+\.\w{2,5}
 - Lista top de los .com https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains 
 - 
+
+## 📙  Expresion en Correos  ($) 📙  ##
+
+Patron
+
+```javascript
+[\w\._]{5,30}\+?\w{0,10}@[\w\-\.]{3,}\.\w{2,5}
+```
+Explicación
+
+- [\w\._]{5,30} => que contengan de 5 hasta 30 caracteres alfanuméricos incluyendo _ y el .
+- \+? => puede contener un +
+- \w{0,10} => que contengan de 0 hasta 10 caracteres alfanuméricos
+- @ => que contenga una @
+- [\w\-\.]{3,} => que contengan de 3 o mas caracteres alfanuméricos incluyendo _ y el .
+- \. => que contenga un .
+- \w{2,5} => que contengan de 2 hasta 5
