@@ -265,3 +265,84 @@ Explicación
 - [\w\-\.]{3,} => que contengan de 3 o mas caracteres alfanuméricos incluyendo _ y el .
 - \. => que contenga un .
 - \w{2,5} => que contengan de 2 hasta 5
+
+
+## 📙  Expresion en Localizaciones  ($) 📙  ##
+
+> Nota : No es trabajo de las expresiones regulares determinar si un valor es correcto, 
+de eso se encarga el lenguaje de programación. Las expresiones regulares 
+determinan si tiene la forma correcta.
+
+Patron
+
+- Latitud y longitud
+
+```javascript
+-?\d{1,3}\.\d{1,6},\s?-?\d{1,3}\.\d{1,6}
+```
+
+- Latitud, longitud y metros sobre el nivel del mar:
+
+```javascript
+^-?\d{1,3}\.\d{1,6},\s?-?\d{1,3}\.\d{1,6},.*$
+```
+- Formato W-E, N-S:
+
+```javascript
+^-?\d{1,3}\s\d{1,2}'\s\d{1,2}.\d{1,2}"[WE],\s-?\d{1,3}\s\d{1,2}'\s\d{1,2}.\d{1,2}"[NS]$
+```
+
+ > Nota:  Super tip: puede pasar que al trabajar con csv, se tengan espacios entre columnas. Para evitar problemas añadir un \s? a la expresión regular.
+
+
+## 📙  Nombre Apellidos   ($) 📙  ##
+
+
+Reglas
+- No puede tener numeros 
+- No puede tener espacios 
+- Primera letra en mayusculas 
+- 
+```javascript
+^([A-ZÑÁÉÍÓÚ][a-zñáéíóú]+\s?){3,4}$
+
+^([a-zA-ZáéíóúÁÉÍÓÚÑñ] ?)+$
+
+[A-ZÀ-ú][a-zÀ-ú]+ [A-ZÀ-ú][a-zÀ-ú]+(( [A-ZÀ-ú][a-zÀ-ú]+){1,})?
+
+^[A-ZÑÁÉÍÓÚ][a-zñáéíóú]{2,} [A-ZÑÁÉÍÓÚ][a-zñáéíóú]{2,} [A-ZÑÁÉÍÓÚ][a-zñáéíóú]{2,} [A-ZÑÁÉÍÓÚ][a-zñáéíóú]{2,}$
+```
+## 📙  Agrupar ()  ($) 📙  ##
+
+> Sirve para agrupar expresiones
+> Puedes remplazar y dejar esa seccion con $
+
+```javascript
+^\d+::(.*)\s([\(\d\)]+){4}::([A-z\s\-\(\)\|]+)$
+```
+
+
+## 📙  Uso de REGEX para descomponer querys GET 📙  ##
+
+
+
+Para aquellos que usan un editor como Visual Studio Code al querer hacer una nueva 
+línea en el replace debemos colocar el salto de línea: \n
+
+
+```javascript
+Find: [\?&](\w+)=([^&\n]+)
+
+Replace: \n - $1=$2
+ 
+```
+
+
+
+
+cat results.csv | grep -E ,3[0-9],
+
+cat results.csv | grep ,3\[0-9\],
+cat results.csv | grep ',3[0-9],' 
+cat results_6aeb6252-c531-449d-bf29-e11193358b8c.csv | grep Colombia | grep Argentina | grep ,5, 
+
