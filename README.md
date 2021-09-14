@@ -247,7 +247,7 @@ el $ se utiliza para indicar final de línea
                    
 - Url hasta el TLD -> https?:\/\/[\w\-\.]+\.\w{2,5}
 - Lista top de los .com https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains 
-- 
+- Para Validar Slug -> ```javascript  ^[a-z0-9]+(?:-[a-z0-9]+)*$   ``` ```php  'code' => 'required|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/u',   ``` Usando Laravel 8
 
 ## 📙  Expresion en Correos  ($) 📙  ##
 
